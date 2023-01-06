@@ -1,0 +1,101 @@
+@import "_config";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signup-page {
+    background-image: linear-gradient(180deg, $color1 30%, $color2 20%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+
+    .signup-page_top {
+        color: $color2;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: flex-start;
+        padding-left: 1rem;
+        cursor: pointer;
+    }
+
+    .signup-form {
+        background-color: $color3;
+        color: rgba(127, 143, 166, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 0 16px 1px $color4;
+        border-radius: 0.5rem;
+        width: 30%;
+        @include small-screen {
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .hoot-icon {
+            font-size: 75px;
+            color: $color1;
+            align-self: center;
+        }
+
+        .signup-form_inpt {
+            outline: none;
+            border: none;
+            background-color: $color3;
+            border-bottom: 1px solid $color4;
+            padding: 0.5rem;
+
+            &:focus {
+                border: 1px solid $color4;
+            }
+        }
+
+        #signup-form_avatar {
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #avatar-icon {
+            font-size: 30px;
+            margin-right: 1rem;
+        }
+
+        #avatar {
+            display: none;
+        }
+
+        .signup-form_btn {
+            background-color: $color1;
+            color: $color2;
+            font-weight: 600;
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.1rem;
+            box-shadow: 0 0 8px 1px $color4;
+            cursor: pointer;
+        }
+
+        .signup-form_last {
+            text-align: center;
+            font-size: 14px;
+
+            #signup-link {
+                text-decoration: none;
+            }
+        }
+    }
+}

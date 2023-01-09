@@ -4,6 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+}
+
+body {
+    overflow-y: scroll;
 }
 
 .signup-page {
@@ -96,6 +101,169 @@
             #signup-link {
                 text-decoration: none;
             }
+        }
+    }
+}
+
+.home-page {
+    display: flex;
+
+    .left {
+        flex: 1;
+        background-color: $color6;
+        padding-top: 1rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+        .dp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            box-shadow: 0 0 8px 1px $color4;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .logout {
+            color: $color1;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+
+    .middle {
+        flex: 3;
+        padding: 1rem 1rem 0 1rem;
+        background-color: $color7;
+        box-shadow: 0px 0px 4px $color11;
+
+        #search-user {
+            background: url("./resources/5.png") no-repeat;
+            background-size: 20px;
+            background-position: 10px;
+            background-color: $color8;
+            height: 40px;
+            padding-left: 3rem;
+            outline: none;
+            border: none;
+            color: $color9;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        #search-user::placeholder {
+            color: $color9;
+        }
+
+        .hr1 {
+            color: $color9;
+        }
+
+        .each-chat {
+            display: flex;
+            background-color: $color10;
+            padding: 1rem;
+            height: 81px;
+            border-radius: 1rem;
+        }
+
+        .dp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            // border: 1px solid black;
+            object-fit: cover;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .each-chat_detail {
+            margin-left: 1rem;
+
+            .each-chat_name {
+                font-size: 1.25rem;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .recent-message {
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+
+            flex: 7;
+        }
+
+        .recent-chat-time {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            font-weight: 400;
+        }
+    }
+
+    .right {
+        flex: 10;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 4px $color11;
+
+        .top {
+            flex: 1;
+            background-color: $color7;
+            display: flex;
+            padding: 1rem 0 0.1rem 1rem;
+
+            .dp {
+                cursor: pointer;
+                flex: 1;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
+            }
+
+            .each-chat_detail {
+                margin-left: 1rem;
+
+                .each-chat_name {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+
+                .status {
+                    font-size: 0.8rem;
+                    font-weight: 400;
+                }
+
+                flex: 8;
+            }
+
+            .fasci {
+                display: flex;
+                justify-content: space-evenly;
+                flex: 3;
+                font-size: 1.5rem;
+            }
+        }
+
+        .between {
+            flex: 11;
+            background-color: $color6;
+        }
+
+        .bottom {
+            flex: 1;
+            background: #f7f9fd;
+            box-shadow: 0px 0px 4px $color11;
         }
     }
 }

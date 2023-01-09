@@ -1,6 +1,5 @@
 import React from "react";
 import { FaEarlybirds } from "react-icons/fa";
-import { FcAddImage } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const signup = () => {

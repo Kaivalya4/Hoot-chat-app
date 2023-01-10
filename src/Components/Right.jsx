@@ -1,6 +1,8 @@
 import React from "react";
 import { BsCameraVideo } from "react-icons/bs";
 import { IoIosCall } from "react-icons/io";
+import Messages from "./Messages";
+import { TbSend } from "react-icons/tb";
 
 const Right = () => {
     return (
@@ -19,8 +21,13 @@ const Right = () => {
                     <IoIosCall />
                 </div>
             </div>
-            <div className="between">middle</div>
-            <div className="bottom">bottom</div>
+            <Messages />
+            <form className="bottom">
+                <input type="text" />
+                <button>
+                    <TbSend />
+                </button>
+            </form>
         </div>
     );
 };

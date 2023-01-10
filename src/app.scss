@@ -7,10 +7,6 @@
     font-family: "Manrope", sans-serif;
 }
 
-body {
-    overflow-y: scroll;
-}
-
 .signup-page {
     background-image: linear-gradient(180deg, $color1 30%, $color2 20%);
     min-height: 100vh;
@@ -107,12 +103,16 @@ body {
 
 .home-page {
     display: flex;
+    padding: 0.8rem;
+    height: 100vh;
+    background-color: $color8;
 
     .left {
+        border-radius: 1rem 0 0 1rem;
         flex: 1;
         background-color: $color6;
         padding-top: 1rem;
-        min-height: 100vh;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -211,12 +211,14 @@ body {
         display: flex;
         flex-direction: column;
         box-shadow: 0px 0px 4px $color11;
+        border-radius: 1rem 1rem 1rem 0;
 
         .top {
             flex: 1;
             background-color: $color7;
             display: flex;
             padding: 1rem 0 0.1rem 1rem;
+            border-radius: 0 1rem 0 0;
 
             .dp {
                 cursor: pointer;
@@ -257,13 +259,70 @@ body {
 
         .between {
             flex: 11;
+            max-height: calc(100vh - 160px);
             background-color: $color6;
+            overflow-y: scroll;
+            padding: 1rem;
+
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $color9;
+                border-radius: 50px;
+            }
+
+            .message {
+                display: flex;
+                margin-bottom: 2rem;
+
+                .dp {
+                    height: 100%;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin: 0.5rem;
+
+                    div {
+                        font-weight: 400;
+                        font-size: 0.7rem;
+                        text-align: center;
+                    }
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50px;
+                        object-fit: cover;
+                    }
+                }
+
+                .msg-body {
+                    background-color: $color10;
+                    min-height: 3rem;
+                    border-radius: 0 1rem 1rem 1.75rem;
+                    padding: 1rem;
+                    margin: 0.5rem;
+                    max-width: 40%;
+
+                    &.owner {
+                        border-radius: 1rem 0 1.75rem 1rem;
+                    }
+                }
+
+                &.owner {
+                    flex-direction: row-reverse;
+                }
+            }
         }
 
         .bottom {
             flex: 1;
             background: #f7f9fd;
             box-shadow: 0px 0px 4px $color11;
+            border-radius: 0 0 1rem 0;
         }
     }
 }

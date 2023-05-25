@@ -1,5 +1,5 @@
-import { FaAmericanSignLanguageInterpreting } from "react-icons/fa";
-import { Route, Router, Routes } from "react-router-dom";
+// import { FaAmericanSignLanguageInterpreting } from "react-icons/fa";
+import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";

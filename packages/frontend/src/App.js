@@ -8,11 +8,11 @@ function App() {
   console.log(process.env.REACT_APP_ENV);
   return (
     <div className="App">
-      {/* <Routes path="/">
+      <Routes path="/">
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-      </Routes> */}
+      </Routes>
       <Signup />
       {/*now we will work on login and signup //This time I am serious*/}
     </div>

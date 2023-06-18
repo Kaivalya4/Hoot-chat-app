@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEarlybirds } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
@@ -7,9 +8,12 @@ import { firebaseAuth, firebaseDB, firebaseStorage } from "../../db/firebaseDB";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { updateUser } from "../../redux/userSlice";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -49,6 +53,7 @@ const Signup = () => {
             });
 
             await setDoc(doc(firebaseDB, "usersChat", response.user.uid), {});
+            dispatch(updateUser({ displayName: name }));
             navigate("/");
           });
         }

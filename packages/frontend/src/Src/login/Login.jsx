@@ -1,15 +1,37 @@
 import React from "react";
 import { FaEarlybirds } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-const signup = () => {
+import { firebaseAuth } from "../../db/firebaseDB";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { updateUser } from "../../redux/userSlice";
+
+const Login = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleSignIn = async (event)=>{
+        event.preventDefault();
+        const email = event.target[0].value;
+        const password = event.target[1].value;
+        try{
+            const response = await signInWithEmailAndPassword(firebaseAuth , email , password);
+            dispatch(updateUser({currentUser : {displayName : response.user.name , uid:response.user.uid , email , photoURL:response.user.photoURL}}));
+            navigate("/chat");        
+        }catch(error){
+
+        }
+
+    }
+
     return (
         <div className="signup-page">
             <span className="signup-page_top">
                 <FaEarlybirds />
                 Hoot Messaging App
             </span>
-            <form className="signup-form">
+            <form className="signup-form" onSubmit={handleSignIn}>
                 <FaEarlybirds className="hoot-icon" />
                 <br />
                 <br />
@@ -23,7 +45,7 @@ const signup = () => {
                 <br />
                 <input
                     type="password"
-                    id="email"
+                    id="password"
                     placeholder="Enter password"
                     className="signup-form_inpt"
                 />
@@ -34,8 +56,8 @@ const signup = () => {
                 <p className="signup-form_last">
                     Already have an account ?{" "}
                     <span>
-                        <Link to="#" id="signup-link">
-                            login
+                        <Link to="/signup" id="signup-link">
+                            Signup
                         </Link>
                     </span>
                 </p>
@@ -44,4 +66,4 @@ const signup = () => {
     );
 };
 
-export default signup;
+export default Login;

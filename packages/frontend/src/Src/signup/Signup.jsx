@@ -20,7 +20,7 @@ const Signup = () => {
     const name = event.target[0].value;
     const email = event.target[1].value;
     const password = event.target[2].value;
-    const image = event.target[3].value;
+    const image = event.target[3].files[0];
     try {
       const response = await createUserWithEmailAndPassword(
         firebaseAuth,
@@ -34,10 +34,6 @@ const Signup = () => {
       const uploadImage = uploadBytesResumable(imageRef, image);
 
       uploadImage.on(
-        "state_changed",
-        (snapshot) => {
-          ///Write here to know the status of image upload
-        },
         (error) => {},
         () => {
           getDownloadURL(uploadImage.snapshot.ref).then(async (downloadURL) => {
@@ -52,8 +48,7 @@ const Signup = () => {
               photoURL: downloadURL,
             });
 
-            await setDoc(doc(firebaseDB, "usersChat", response.user.uid), {});
-            dispatch(updateUser({ displayName: name }));
+            dispatch(updateUser({currentUser : {displayName : name , uid:response.user.uid , email , photoURL:downloadURL}}));
             navigate("/");
           });
         }
@@ -111,8 +106,8 @@ const Signup = () => {
         <p className="signup-form_last">
           Don't have any account ?{" "}
           <span>
-            <Link to="#" id="signup-link">
-              Signup
+            <Link to="/login" id="signup-link">
+              Login
             </Link>
           </span>
         </p>

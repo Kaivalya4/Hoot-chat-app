@@ -122,15 +122,19 @@
             width: 50px;
             height: 50px;
             border-radius: 50px;
-            box-shadow: 0 0 8px 1px $color4;
+            border : 1px solid $color4;
             object-fit: cover;
             cursor: pointer;
         }
 
-        .logout {
-            color: $color1;
-            font-size: 30px;
-            cursor: pointer;
+        .logout-button{
+            background-color: transparent;
+            border:none;
+            .logout-icon{
+                color: $color1;
+                font-size: 30px;
+                cursor: pointer;
+            }
         }
     }
 
@@ -147,6 +151,7 @@
             background-color: $color8;
             height: 40px;
             padding-left: 3rem;
+            padding-right : 2rem;
             outline: none;
             border: none;
             color: $color9;

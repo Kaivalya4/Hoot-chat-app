@@ -1,1 +1,4 @@
 /node_modules
+/packages/frontend/.env
+/packages/frontend/.env.staging
+/packages/frontend/.env.production

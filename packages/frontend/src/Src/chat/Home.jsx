@@ -4,6 +4,7 @@ import Middle from "./Middle";
 import Right from "./Right";
 
 const Home = () => {
+    
     return (
         <div className="home-page">
             <Left />

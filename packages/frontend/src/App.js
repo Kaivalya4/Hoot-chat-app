@@ -1,44 +1,33 @@
 // import { FaAmericanSignLanguageInterpreting } from "react-icons/fa";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Pages/chat/Home";
-import Login from "./Pages/login/Login";
-import Signup from "./Pages/signup/Signup";
-import Index from "./Pages";
-import ProtectedRoutes from "./component/ProtectedRoutes";
+
+import Index from "./Pages/index";
+import SignupIndex from "./Pages/signup/index";
+import LoginIndex from "./Pages/login/index";
+import ChatIndex from "./Pages/chat/index";
 
 function App() {
-  console.log(process.env.REACT_APP_ENV);
   return (
     <div className="App">
       <Routes path="/">
         <Route index element={<Index />} />
         <Route
-          path="home"
+          path="chat"
           element={
-            <ProtectedRoutes>
-              <Home />
-            </ProtectedRoutes>
+              <ChatIndex />
           }
         />
         <Route
           path="login"
           element={
-            <ProtectedRoutes>
-              <Login />
-            </ProtectedRoutes>
+              <LoginIndex />
           }
         />
         <Route
           path="signup"
-          element={
-            <ProtectedRoutes>
-              <Signup />
-            </ProtectedRoutes>
-          }
+          element={<SignupIndex />}
         />
       </Routes>
-      <Signup />
-      {/*now we will work on login and signup //This time I am serious*/}
     </div>
   );
 }

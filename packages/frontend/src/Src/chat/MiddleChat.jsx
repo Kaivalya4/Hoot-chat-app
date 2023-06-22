@@ -7,7 +7,6 @@ const MiddleChat = () => {
         <img
           src={require("../../resources/4.jpg")}
           alt=""
-          srcset=""
           className="dp"
         />
         <div className="each-chat_detail">
@@ -21,7 +20,6 @@ const MiddleChat = () => {
         <img
           src={require("../../resources/4.jpg")}
           alt=""
-          srcset=""
           className="dp"
         />
         <div className="each-chat_detail">
@@ -35,7 +33,6 @@ const MiddleChat = () => {
         <img
           src={require("../../resources/4.jpg")}
           alt=""
-          srcset=""
           className="dp"
         />
         <div className="each-chat_detail">
@@ -49,7 +46,6 @@ const MiddleChat = () => {
         <img
           src={require("../../resources/4.jpg")}
           alt=""
-          srcset=""
           className="dp"
         />
         <div className="each-chat_detail">

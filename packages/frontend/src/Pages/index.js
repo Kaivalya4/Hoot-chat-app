@@ -1,20 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+
+import useGetUser from "../Src/common/hooks/useGetUser";
 
 const Index = () => {
-  const navigate = useNavigate();
-  const user = useSelector((state) => state.user.displayName);
-  useEffect(() => {
-    if (user === "") {
-      navigate("signup");
-    } else {
-      navigate("home");
-    }
-  }, [user, navigate]);
-  console.log(user);
+  const currentUser = useGetUser();
 
-  return null;
+  if(currentUser)
+    return <Navigate to="/chat" />
+
+  return <Navigate to="/signup" />;
 };
 
 export default Index;

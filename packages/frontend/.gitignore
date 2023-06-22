@@ -1,4 +1,4 @@
 /node_modules
-.env
-.env.production
-.env.staging
+/.env
+/.env.production
+/.env.staging

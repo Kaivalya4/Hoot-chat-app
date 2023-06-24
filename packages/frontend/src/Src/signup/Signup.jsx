@@ -28,8 +28,6 @@ const Signup = () => {
         password
       );
 
-      console.log(firebaseAuth.currentUser);
-
       const imageRef = ref(firebaseStorage, name);
       const uploadImage = uploadBytesResumable(imageRef, image);
 
@@ -48,7 +46,16 @@ const Signup = () => {
               photoURL: downloadURL,
             });
 
-            dispatch(updateUser({currentUser : {displayName : name , uid:response.user.uid , email , photoURL:downloadURL}}));
+            dispatch(
+              updateUser({
+                currentUser: {
+                  displayName: name,
+                  uid: response.user.uid,
+                  email,
+                  photoURL: downloadURL,
+                },
+              })
+            );
             navigate("/");
           });
         }

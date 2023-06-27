@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useRef, useState } from "react";
-import { useSelector } from "react-redux";
 
 import {
   collection,
@@ -18,6 +17,8 @@ import MiddleChat from "./MiddleChat";
 import DisplaySearchResult from "./DisplaySearchResult";
 import { firebaseDB } from "../../../../db/firebaseDB";
 import { loadingReducer } from "../../utils/utils";
+import useGetUser from "../../../common/hooks/useGetUser";
+import { useSelector } from "react-redux";
 
 const Middle = () => {
   const inputRef = useRef();
@@ -32,11 +33,11 @@ const Middle = () => {
 
   const currentUser = useSelector((state) => state.user.currentUser);
 
-  useEffect(() => {
-    onSnapshot(doc(firebaseDB, "usersChats", currentUser), (doc) => {
-      console.log(doc.data());
-    });
-  });
+  // useEffect(() => {
+  //   onSnapshot(doc(firebaseDB, "usersChats", currentUser), (doc) => {
+  //     console.log(doc.data());
+  //   });
+  // });
 
   const handleChange = (event) => {
     if (event.target.value === "") {

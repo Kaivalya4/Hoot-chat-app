@@ -9,7 +9,7 @@ const Right = () => {
     <div className="right">
       <div className="top">
         <div className="dp">
-          <img src={require("../../resources/4.jpg")} alt="" />
+          <img src={require("../../../../resources/4.jpg")} alt="" />
         </div>
 
         <div className="each-chat_detail">

@@ -45,7 +45,7 @@ const Signup = () => {
               email,
               photoURL: downloadURL,
             });
-
+            await setDoc(doc(firebaseDB, "usersChats", response.user.uid), {});
             dispatch(
               updateUser({
                 currentUser: {

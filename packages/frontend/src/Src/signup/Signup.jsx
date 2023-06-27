@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEarlybirds } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
@@ -8,11 +7,9 @@ import { firebaseAuth, firebaseDB, firebaseStorage } from "../../db/firebaseDB";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { updateUser } from "../../redux/userSlice";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -29,37 +26,22 @@ const Signup = () => {
       );
 
       const imageRef = ref(firebaseStorage, name);
-      const uploadImage = uploadBytesResumable(imageRef, image);
-
-      uploadImage.on(
-        (error) => {},
-        () => {
-          getDownloadURL(uploadImage.snapshot.ref).then(async (downloadURL) => {
-            await updateProfile(response.user, {
-              displayName: name,
-              photoURL: downloadURL,
-            });
-            await setDoc(doc(firebaseDB, "users", response.user.uid), {
-              uid: response.user.uid,
-              displayName: name,
-              email,
-              photoURL: downloadURL,
-            });
-            await setDoc(doc(firebaseDB, "usersChats", response.user.uid), {});
-            dispatch(
-              updateUser({
-                currentUser: {
-                  displayName: name,
-                  uid: response.user.uid,
-                  email,
-                  photoURL: downloadURL,
-                },
-              })
-            );
-            navigate("/");
+      await uploadBytesResumable(imageRef, image).then(() => {
+        getDownloadURL(imageRef).then(async (downloadURL) => {
+          await updateProfile(response.user, {
+            displayName: name,
+            photoURL: downloadURL,
           });
-        }
-      );
+          await setDoc(doc(firebaseDB, "users", response.user.uid), {
+            uid: response.user.uid,
+            displayName: name,
+            email,
+            photoURL: downloadURL,
+          });
+          await setDoc(doc(firebaseDB, "usersChats", response.user.uid), {});
+          navigate("/");
+        });
+      });
     } catch (error) {}
   };
   return (

@@ -17,13 +17,12 @@ import MiddleChat from "./MiddleChat";
 import DisplaySearchResult from "./DisplaySearchResult";
 import { firebaseDB } from "../../../../db/firebaseDB";
 import { loadingReducer } from "../../utils/utils";
-import useGetUser from "../../../common/hooks/useGetUser";
 import { useSelector } from "react-redux";
 
 const Middle = () => {
   const inputRef = useRef();
   const [users, setUsers] = useState([]);
-  const [chats, setChats] = useState(null);
+  const [chats, setChats] = useState({});
   const [dataLoadingStatus, loadingDispatch] = useReducer(loadingReducer, {
     isloaded: true,
     showsearch: false,
@@ -33,11 +32,21 @@ const Middle = () => {
 
   const currentUser = useSelector((state) => state.user.currentUser);
 
-  // useEffect(() => {
-  //   onSnapshot(doc(firebaseDB, "usersChats", currentUser), (doc) => {
-  //     console.log(doc.data());
-  //   });
-  // });
+  useEffect(() => {
+    if (currentUser) {
+      const unsub = onSnapshot(
+        doc(firebaseDB, "usersChats", currentUser.uid),
+        (doc) => {
+          setChats(doc.data());
+          console.log(doc.data());
+        }
+      );
+
+      return () => {
+        unsub();
+      };
+    }
+  }, [currentUser]);
 
   const handleChange = (event) => {
     if (event.target.value === "") {
@@ -122,7 +131,7 @@ const Middle = () => {
         <DisplaySearchResult users={users} handleOnClick={handleOnClick} />
       )}
       {dataLoadingStatus.isloaded && !dataLoadingStatus.showsearch && (
-        <MiddleChat />
+        <MiddleChat chats={chats} />
       )}
     </div>
   );

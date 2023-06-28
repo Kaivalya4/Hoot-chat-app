@@ -1,11 +1,27 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { updateUserChat } from "../../../common/redux/chatSlice";
 
 const MiddleChat = ({ chats }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (userChat) => {
+    dispatch(
+      updateUserChat({
+        id: userChat[0],
+        uid: userChat[1].uid,
+        displayName: userChat[1].displayName,
+        photoURL: userChat[1].photoURL,
+      })
+    );
+  };
+
   return (
     <div>
       {Object.entries(chats)?.map((chat) => (
         <div key={chat[0]}>
-          <div className="each-chat">
+          <div className="each-chat" onClick={() => handleClick(chat)}>
             <img
               src={chat[1].photoURL || require("../../../../resources/4.jpg")}
               alt=""

@@ -15,7 +15,7 @@ import {
 
 import MiddleChat from "./MiddleChat";
 import DisplaySearchResult from "./DisplaySearchResult";
-import { firebaseDB } from "../../../../db/firebaseDB";
+import { firebaseDB } from "../../../common/db/firebaseDB";
 import { loadingReducer } from "../../utils/utils";
 import { useSelector } from "react-redux";
 
@@ -38,7 +38,6 @@ const Middle = () => {
         doc(firebaseDB, "usersChats", currentUser.uid),
         (doc) => {
           setChats(doc.data());
-          console.log(doc.data());
         }
       );
 

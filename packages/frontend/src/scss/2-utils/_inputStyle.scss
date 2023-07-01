@@ -1,0 +1,24 @@
+//This is contains base styles for different input
+@use "../1-base/config";
+
+@mixin inputTextStyle {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  &::placeholder {
+    font-size: 1rem;
+    color: config.$color9;
+  }
+  &::-moz-placeholder {
+    font-size: 1rem;
+    color: config.$color9;
+  }
+  &::-webkit-input-placeholder {
+    font-size: 1rem;
+    color: config.$color9;
+  }
+}
+
+@mixin inputFileStyle {
+  display: none;
+}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { RiLogoutBoxLine } from "react-icons/ri";
 
 import { signOut } from "firebase/auth";
-import { firebaseAuth } from "../../../../db/firebaseDB";
+import { firebaseAuth } from "../../../common/db/firebaseDB";
 
 import useGetUser from "../../../common/hooks/useGetUser";
 
@@ -20,11 +20,10 @@ const Left = () => {
   return (
     <div className="left">
       <br />
-      <div>
+      <div className="dp">
         <img
           src={currentUser.photoURL || require("../../../../resources/3.jpg")}
           alt=""
-          className="dp"
         />
       </div>
       <br />

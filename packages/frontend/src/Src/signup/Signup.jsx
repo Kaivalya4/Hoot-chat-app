@@ -3,7 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEarlybirds } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
 
-import { firebaseAuth, firebaseDB, firebaseStorage } from "../../db/firebaseDB";
+import {
+  firebaseAuth,
+  firebaseDB,
+  firebaseStorage,
+} from "../common/db/firebaseDB";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";

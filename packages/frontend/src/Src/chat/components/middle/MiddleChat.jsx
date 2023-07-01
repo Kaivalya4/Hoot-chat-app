@@ -22,11 +22,12 @@ const MiddleChat = ({ chats }) => {
       {Object.entries(chats)?.map((chat) => (
         <div key={chat[0]}>
           <div className="each-chat" onClick={() => handleClick(chat)}>
-            <img
-              src={chat[1].photoURL || require("../../../../resources/4.jpg")}
-              alt=""
-              className="dp"
-            />
+            <div className="dp">
+              <img
+                src={chat[1].photoURL || require("../../../../resources/4.jpg")}
+                alt=""
+              />
+            </div>
             <div className="each-chat_detail">
               <div className="each-chat_name">{chat[1].displayName}</div>
               <p className="recent-message">Khush raho vats !!!!</p>

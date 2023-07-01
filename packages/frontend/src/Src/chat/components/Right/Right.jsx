@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { BsCameraVideo } from "react-icons/bs";
 import { IoIosCall } from "react-icons/io";
 import { TbSend } from "react-icons/tb";
+import { BiLink } from "react-icons/bi";
+import { VscSmiley } from "react-icons/vsc";
 
 import Messages from "./Messages";
 
@@ -32,12 +34,33 @@ const Right = () => {
         </div>
       </div>
       <Messages />
-      <form className="bottom">
-        <input type="text" />
-        <button>
-          <TbSend />
-        </button>
-      </form>
+      <div className="bottom">
+        <form className="form">
+          <div className="input-block">
+            <label htmlFor="attach" className="attach-file-label">
+              <BiLink />
+            </label>
+            <input type="file" name="" id="attach" className="attach-file" />
+            <input
+              type="text"
+              className="input-area"
+              placeholder="Write a message..."
+            />
+            <label htmlFor="emoji-pick" className="attach-emoji-label">
+              <VscSmiley />
+            </label>
+            <input
+              type="text"
+              name=""
+              id="emoji-pick"
+              className="attach-emoji"
+            />
+          </div>
+          <button className="send">
+            <TbSend />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

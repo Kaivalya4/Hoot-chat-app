@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap");
 
-$color1: rgba(9, 132, 227, 1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+$color1: #5b96f7;
 $color2: rgba(223, 230, 233, 1);
 $color3: rgba(245, 246, 250, 1);
 $color4: rgba(116, 125, 140, 1);
@@ -11,9 +18,10 @@ $color8: #eaf2fe;
 $color9: #709ce6;
 $color10: white;
 $color11: rgba(0, 0, 0, 0.25);
+$color12: #f7f9fd;
 
 @mixin small-screen {
-    @media screen and (max-width: 1024px) {
-        @content;
-    }
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
 }

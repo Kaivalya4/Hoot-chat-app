@@ -109,6 +109,7 @@ const Middle = () => {
         if (dbref.exists()) {
           Object.entries(dbref.data())?.map((eachuser) => {
             if (eachuser[0] === combinedId) mark = true;
+            return null;
           });
         }
         if (!mark) {

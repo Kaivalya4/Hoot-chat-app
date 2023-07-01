@@ -26,7 +26,7 @@ const useGetUser = () => {
     return () => {
       unsub();
     };
-  }, []);
+  }, [dispatch]);
   return useSelector((state) => state.user.currentUser);
 };
 

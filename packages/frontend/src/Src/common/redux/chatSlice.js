@@ -17,8 +17,16 @@ export const chatSlice = createSlice({
       state.currentUserChat.displayName = action.payload.displayName;
       state.currentUserChat.photoURL = action.payload.photoURL;
     },
+    resetUserChat: (state) => {
+      state.currentUserChat = {
+        id: null,
+        uid: null,
+        photoURL: "",
+        displayName: "",
+      };
+    },
   },
 });
 
-export const { updateUserChat } = chatSlice.actions;
+export const { updateUserChat, resetUserChat } = chatSlice.actions;
 export default chatSlice.reducer;

@@ -19,24 +19,27 @@ const MiddleChat = ({ chats }) => {
 
   return (
     <div>
-      {Object.entries(chats)?.map((chat) => (
-        <div key={chat[0]}>
-          <div className="each-chat" onClick={() => handleClick(chat)}>
-            <div className="dp">
-              <img
-                src={chat[1].photoURL || require("../../../../resources/4.jpg")}
-                alt=""
-              />
+      {chats &&
+        Object.entries(chats)?.map((chat) => (
+          <div key={chat[0]}>
+            <div className="each-chat" onClick={() => handleClick(chat)}>
+              <div className="dp">
+                <img
+                  src={
+                    chat[1].photoURL || require("../../../../resources/4.jpg")
+                  }
+                  alt=""
+                />
+              </div>
+              <div className="each-chat_detail">
+                <div className="each-chat_name">{chat[1].displayName}</div>
+                <p className="recent-message">Khush raho vats !!!!</p>
+              </div>
+              <div className="recent-chat-time">9:38</div>
             </div>
-            <div className="each-chat_detail">
-              <div className="each-chat_name">{chat[1].displayName}</div>
-              <p className="recent-message">Khush raho vats !!!!</p>
-            </div>
-            <div className="recent-chat-time">9:38</div>
+            <br />
           </div>
-          <br />
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

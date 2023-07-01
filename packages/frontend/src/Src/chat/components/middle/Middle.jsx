@@ -86,7 +86,6 @@ const Middle = () => {
     setUsers([]);
     loadingDispatch({ type: "clear" });
     try {
-      console.log(user);
       const combinedId =
         currentUser.uid > user.uid
           ? currentUser.uid + user.uid

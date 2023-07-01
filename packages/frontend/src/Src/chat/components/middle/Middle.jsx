@@ -101,6 +101,24 @@ const Middle = () => {
           [combinedId + ".photoURL"]: user.photoURL,
           [combinedId + ".date"]: serverTimestamp(),
         });
+      } else {
+        const dbref = await getDoc(
+          doc(firebaseDB, "usersChats", currentUser.uid)
+        );
+        let mark = false;
+        if (dbref.exists()) {
+          Object.entries(dbref.data())?.map((eachuser) => {
+            if (eachuser[0] === combinedId) mark = true;
+          });
+        }
+        if (!mark) {
+          await updateDoc(doc(firebaseDB, "usersChats", currentUser.uid), {
+            [combinedId + ".uid"]: user.uid,
+            [combinedId + ".displayName"]: user.displayName,
+            [combinedId + ".photoURL"]: user.photoURL,
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+        }
       }
     } catch (error) {}
   };

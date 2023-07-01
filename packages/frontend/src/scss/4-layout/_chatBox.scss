@@ -1,0 +1,57 @@
+@use "../1-base/config";
+@use "../2-utils/inputStyle" as input;
+@use "../3-components/buttons" as button;
+
+@mixin chatBox {
+  flex: 1.75;
+  background-color: config.$color12;
+  box-shadow: 0px 0px 4px config.$color11;
+  border-radius: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .input-block {
+      background-color: config.$color8;
+      width: 92%;
+      height: 3rem;
+      align-items: center;
+      display: flex;
+      border-radius: 10px;
+
+      .attach-file-label {
+        color: config.$color9;
+        font-size: 1.5rem;
+        text-align: center;
+        flex: 1;
+      }
+
+      .attach-file {
+        @include input.inputFileStyle;
+      }
+
+      .input-area {
+        flex: 12;
+        @include input.inputTextStyle;
+      }
+
+      .attach-emoji-label {
+        color: config.$color9;
+        font-size: 1.5rem;
+        text-align: center;
+        flex: 1;
+      }
+
+      .attach-emoji {
+        @include input.inputFileStyle;
+      }
+    }
+    .send {
+      @include button.sendButton;
+    }
+  }
+}

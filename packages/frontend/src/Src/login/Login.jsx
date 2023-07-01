@@ -3,9 +3,9 @@ import { FaEarlybirds } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { firebaseAuth } from "../../db/firebaseDB";
+import { firebaseAuth } from "../common/db/firebaseDB";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { updateUser } from "../../redux/userSlice";
+import { updateUser } from "../common/redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,0 +1,16 @@
+//This sheet is for different button styles
+@use "../1-base/config";
+
+@mixin sendButton {
+  border: none;
+  outline: none;
+  background-color: config.$color1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  color: config.$color10;
+  border-radius: 12px;
+}

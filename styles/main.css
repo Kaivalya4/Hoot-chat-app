@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+.home-page {
+  display: flex;
+  padding: 0.8rem;
+  height: 100vh;
+  background-color: #eaf2fe;
+}
+.home-page .left {
+  border-radius: 1rem 0 0 1rem;
+  flex: 1;
+  background-color: #f0f4fa;
+  padding-top: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.home-page .left .dp {
+  cursor: pointer;
+}
+.home-page .left .dp img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home-page .left .logout-button {
+  background-color: transparent;
+  border: none;
+}
+.home-page .left .logout-button .logout-icon {
+  color: rgb(9, 132, 227);
+  font-size: 30px;
+  cursor: pointer;
+}
+.home-page .middle {
+  flex: 3;
+  padding: 1rem 1rem 0 1rem;
+  background-color: #f8faff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.home-page .middle .search-user-form {
+  margin-top: 31px;
+}
+.home-page .middle #search-user {
+  background: url("../../resources/5.png") no-repeat;
+  background-size: 20px;
+  background-position: 10px;
+  background-color: #eaf2fe;
+  height: 40px;
+  padding-left: 3rem;
+  padding-right: 2rem;
+  outline: none;
+  border: none;
+  color: #709ce6;
+  width: 100%;
+  border-radius: 20px;
+}
+.home-page .middle #search-user::-moz-placeholder {
+  color: #709ce6;
+}
+.home-page .middle #search-user::placeholder {
+  color: #709ce6;
+}
+.home-page .middle .hr1 {
+  color: #709ce6;
+}
+.home-page .middle .each-chat {
+  display: flex;
+  background-color: white;
+  padding: 1rem;
+  height: 81px;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.home-page .middle .dp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex: 1;
+}
+.home-page .middle .each-chat_detail {
+  margin-left: 1rem;
+  flex: 7;
+}
+.home-page .middle .each-chat_detail .each-chat_name {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.home-page .middle .each-chat_detail .recent-message {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.home-page .middle .recent-chat-time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: 400;
+}
+.home-page .right {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem 1rem 1rem 0;
+}
+.home-page .right .top {
+  flex: 1;
+  background-color: #f8faff;
+  display: flex;
+  padding: 1rem 0 0.1rem 1rem;
+  border-radius: 0 1rem 0 0;
+}
+.home-page .right .top .dp {
+  cursor: pointer;
+  flex: 1;
+}
+.home-page .right .top .dp img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home-page .right .top .each-chat_detail {
+  margin-left: 1rem;
+  flex: 8;
+}
+.home-page .right .top .each-chat_detail .each-chat_name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.home-page .right .top .each-chat_detail .status {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.home-page .right .top .fasci {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 3;
+  font-size: 1.5rem;
+}
+.home-page .right .between {
+  flex: 11;
+  max-height: calc(100vh - 160px);
+  background-color: #f0f4fa;
+  overflow-y: scroll;
+  padding: 1rem;
+}
+.home-page .right .between::-webkit-scrollbar {
+  width: 6px;
+}
+.home-page .right .between::-webkit-scrollbar-thumb {
+  background-color: #709ce6;
+  border-radius: 50px;
+}
+.home-page .right .between .message {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.home-page .right .between .message .dp {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.5rem;
+}
+.home-page .right .between .message .dp div {
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.home-page .right .between .message .dp img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home-page .right .between .message .msg-body {
+  background-color: white;
+  min-height: 3rem;
+  border-radius: 0 1rem 1rem 1.75rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  max-width: 40%;
+}
+.home-page .right .between .message .msg-body.owner {
+  border-radius: 1rem 0 1.75rem 1rem;
+}
+.home-page .right .between .message.owner {
+  flex-direction: row-reverse;
+}
+.home-page .right .bottom {
+  flex: 1;
+  background: #f7f9fd;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 1rem 0;
+}
+
+.signup-page {
+  background-image: linear-gradient(180deg, rgb(9, 132, 227) 30%, rgb(223, 230, 233) 20%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+.signup-page .signup-page_top {
+  color: rgb(223, 230, 233);
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.signup-page .signup-form {
+  background-color: rgb(245, 246, 250);
+  color: rgb(127, 143, 166);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-shadow: 0 0 16px 1px rgb(116, 125, 140);
+  border-radius: 0.5rem;
+  width: 30%;
+}
+@media screen and (max-width: 1024px) {
+  .signup-page .signup-form {
+    width: 300px;
+  }
+}
+.signup-page .signup-form h2 {
+  text-align: center;
+}
+.signup-page .signup-form .hoot-icon {
+  font-size: 75px;
+  color: rgb(9, 132, 227);
+  align-self: center;
+}
+.signup-page .signup-form .signup-form_inpt {
+  outline: none;
+  border: none;
+  background-color: rgb(245, 246, 250);
+  border-bottom: 1px solid rgb(116, 125, 140);
+  padding: 0.5rem;
+}
+.signup-page .signup-form .signup-form_inpt:focus {
+  border: 1px solid rgb(116, 125, 140);
+}
+.signup-page .signup-form #signup-form_avatar {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.signup-page .signup-form #avatar-icon {
+  font-size: 30px;
+  margin-right: 1rem;
+}
+.signup-page .signup-form #avatar {
+  display: none;
+}
+.signup-page .signup-form .signup-form_btn {
+  background-color: rgb(9, 132, 227);
+  color: rgb(223, 230, 233);
+  font-weight: 600;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+  box-shadow: 0 0 8px 1px rgb(116, 125, 140);
+  cursor: pointer;
+}
+.signup-page .signup-form .signup-form_last {
+  text-align: center;
+  font-size: 14px;
+}
+.signup-page .signup-form .signup-form_last #signup-link {
+  text-decoration: none;
+}

@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { onAuthStateChanged } from "firebase/auth";
 
-import { firebaseAuth } from "../../../db/firebaseDB";
-import { updateUser } from "../../../redux/userSlice";
+import { firebaseAuth } from "../db/firebaseDB";
+import { updateUser } from "../redux/userSlice";
 
 const useGetUser = () => {
   const dispatch = useDispatch();

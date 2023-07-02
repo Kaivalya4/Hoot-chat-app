@@ -33,9 +33,13 @@ const MiddleChat = ({ chats }) => {
               </div>
               <div className="each-chat_detail">
                 <div className="each-chat_name">{chat[1].displayName}</div>
-                <p className="recent-message">Khush raho vats !!!!</p>
+                {chat[1]?.lastMessage && (
+                  <p className="recent-message">{chat[1].lastMessage}</p>
+                )}
               </div>
-              <div className="recent-chat-time">9:38</div>
+              {chat[1]?.lastMessage && (
+                <div className="recent-chat-time">9:38</div>
+              )}
             </div>
             <br />
           </div>

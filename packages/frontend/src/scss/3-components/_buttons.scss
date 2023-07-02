@@ -1,6 +1,13 @@
 //This sheet is for different button styles
 @use "../1-base/config";
 
+@mixin changeBase {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 @mixin sendButton {
   border: none;
   outline: none;

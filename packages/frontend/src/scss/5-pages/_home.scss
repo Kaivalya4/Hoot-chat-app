@@ -1,6 +1,7 @@
 @use "../1-base/config" as config;
 @use "../3-components/dp" as dp;
 @use "../4-layout/chatBox" as bottom;
+@use "../3-components/message";
 
 .home-page {
   display: flex;
@@ -167,47 +168,7 @@
       }
 
       .message {
-        display: flex;
-        margin-bottom: 2rem;
-
-        .dp {
-          height: 100%;
-          cursor: pointer;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          margin: 0.5rem;
-
-          div {
-            font-weight: 400;
-            font-size: 0.7rem;
-            text-align: center;
-          }
-
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50px;
-            object-fit: cover;
-          }
-        }
-
-        .msg-body {
-          background-color: config.$color10;
-          min-height: 3rem;
-          border-radius: 0 1rem 1rem 1.75rem;
-          padding: 1rem;
-          margin: 0.5rem;
-          max-width: 40%;
-
-          &.owner {
-            border-radius: 1rem 0 1.75rem 1rem;
-          }
-        }
-
-        &.owner {
-          flex-direction: row-reverse;
-        }
+        @include message.sendMessage;
       }
     }
 

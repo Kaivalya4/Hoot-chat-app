@@ -1,0 +1,44 @@
+//This sheet contains all the style related to message box
+@use "../1-base/config";
+@use "dp";
+
+@mixin sendMessage {
+  display: flex;
+  margin-bottom: 2rem;
+
+  .dp {
+    @include dp.dp-style;
+
+    div {
+      font-weight: 400;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      object-fit: cover;
+    }
+  }
+
+  .msg-body {
+    background-color: config.$color10;
+    min-height: 3rem;
+    border-radius: 0 1rem 1rem 1.75rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    max-width: 40%;
+
+    &.owner {
+      border-radius: 1rem 0 1.75rem 1rem;
+      background-color: config.$color1;
+      color: config.$color10;
+    }
+  }
+
+  &.owner {
+    flex-direction: row-reverse;
+  }
+}

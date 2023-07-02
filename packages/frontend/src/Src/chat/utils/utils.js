@@ -1,3 +1,5 @@
+import { MSGCONSTANT } from "./constants";
+
 export const loadingReducer = (state, action) => {
   switch (action.type) {
     case "start":
@@ -35,5 +37,23 @@ export const loadingReducer = (state, action) => {
         error: true,
         message: "Unkown Problem occured while searching the user !!!",
       };
+  }
+};
+
+export const msgReducer = (state, action) => {
+  switch (action.type) {
+    case MSGCONSTANT.UPDATEFILE:
+      return {
+        ...state,
+        file: action.payload.file,
+      };
+    case MSGCONSTANT.UPDATETEXT:
+      console.log(action.payload.text);
+      return {
+        ...state,
+        text: action.payload.text,
+      };
+    default:
+      return state;
   }
 };
